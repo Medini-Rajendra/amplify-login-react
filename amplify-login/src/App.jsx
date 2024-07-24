@@ -2,21 +2,22 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
-import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
+import { Amplify } from "aws-amplify";
+import awsmobile from "./aws-exports";
+import { Authenticator, withAuthenticator } from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css';
 
-Amplify.config(awsconfig);
+Amplify.configure(awsmobile);
 
 function App() {
-  return (
-    <>
-      <header className="App-header">
-        <AmplifySignOut />
-        <h2>Sign in here!</h2>
-      </header>
-    </>
-  );
-}
+  <Authenticator>
+    {({ signOut, user }) => (
+      <main>
+        <h1>Hello {user.username}</h1>
+        <button onClick={signOut}>Sign out</button>
+      </main>
+    )}
+  </Authenticator>
+};
 
-export default withAuthenticator(App);
+export default App;

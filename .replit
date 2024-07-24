@@ -5,4 +5,9 @@ channel = "stable-24_05"
 
 [deployment]
 
+[[ports]]
+localPort = 5173
+externalPort = 80
+exposeLocalhost = true
+
 
