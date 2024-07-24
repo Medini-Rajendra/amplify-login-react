@@ -6,4 +6,5 @@ AWS Amplify, ReactJS, npm
 
 ### Installation
 > npm create vite@latest (select JS and React framework)
-> npm install -g @aws-amplify/cli (to install aws amplify)
+
+`npm install -g @aws-amplify/cli (to install aws amplify)`
